@@ -24,12 +24,21 @@ st.image("./raoncute_logo.png", width=200)
 st.write("")
 
 gemini_pro, gemini_vision = st.tabs(["Gemini Pro", "Gemini Pro Vision"])
+# HTML 코드 삽입
+html_code = """
+<ins class="kakao_ad_area" style="display:none;"
+data-ad-unit="DAN-YJPgdkNkga5Qw7Ma"
+data-ad-width="320"
+data-ad-height="100"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+"""
 
 def main():
     with gemini_pro:
         st.header("무엇이든 물어보세요.")
-        st.write("")
 
+        
+        
         prompt = st.text_input("prompt please...", placeholder="Prompt", label_visibility="visible")
         model = genai.GenerativeModel("gemini-pro")
 
@@ -41,6 +50,8 @@ def main():
             st.write("")
 
             st.markdown(response.text)
+            
+
 
     with gemini_vision:
         st.header("이미지를 올리고 무엇이든 물어보세요.\n 예를 들면 얼굴사진을 올리고 '사진과 관련된 사람의 운세를 알려주세요.'를 입력하시면 됩니다.")
@@ -96,6 +107,10 @@ def main():
             else:
                 st.write("")
                 st.header(":red[Please Provide an image]")
-
+#st.markdown(html_code, unsafe_allow_html=True)
+st.components.v1.html(html_code, height=150, scrolling=True)
 if __name__ == "__main__":
     main()
+
+
+
