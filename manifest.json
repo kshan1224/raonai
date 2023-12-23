@@ -1,0 +1,16 @@
+{
+  "short_name": "RaonAi",
+  "name": "Raon AI Chatbot",
+  "icons": [
+    {
+      "src": "favicon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "description": "Gemini를 활용한 챗봇앱입니다."
+}
