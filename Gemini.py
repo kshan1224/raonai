@@ -60,7 +60,7 @@ def main():
     with gemini_vision:
 
         #image_prompt = st.text_input("Interact with the Image", placeholder="Prompt", label_visibility="visible")
-        uploaded_file = st.file_uploader("나와 연관된 이미지를 올리고 로또번호생성 버튼을 눌러주세요.", accept_multiple_files=False, type=["png", "jpg", "jpeg", "img", "webp"])
+        uploaded_file = st.file_uploader("나와 연관된 이미지를 올리고 [로또번호생성] 버튼을 눌러주세요.", accept_multiple_files=False, type=["png", "jpg", "jpeg", "img", "webp"])
         image_prompt ="Generate 6 random numbers between 1 and 45 for the Korean Lotto."
         if uploaded_file is not None:
             st.image(Image.open(uploaded_file), use_column_width=True)
@@ -112,10 +112,10 @@ def main():
                 st.header(":red[Please Provide an image]")
     with gemini_pro:
 
-        prompt = st.text_input("아래 입력란에 궁금한 내용을 적어주세요.", placeholder="예시) AI 기술은 한국인의 일상생활에 어떤 방식으로 접목되고 있나요?", label_visibility="visible")
+        prompt = st.text_input("아래 입력란에 궁금한 내용을 적고, [답변 요청]버튼을 눌러주세요.", placeholder="예시) AI 기술은 한국인의 일상생활에 어떤 방식으로 접목되고 있나요?", label_visibility="visible")
         model = genai.GenerativeModel("gemini-pro")
 
-        if st.button("질문 보내기",use_container_width=True):
+        if st.button("답변 요청",use_container_width=True):
             response = model.generate_content(prompt)
 
             st.write("")
